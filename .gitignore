@@ -1,0 +1,9 @@
+# Fichiers de configuration avec clés sensibles
+config.js
+
+# Variables d'environnement
+.env
+
+# Fichiers système
+.DS_Store
+Thumbs.db

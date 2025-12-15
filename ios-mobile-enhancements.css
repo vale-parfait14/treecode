@@ -1,0 +1,125 @@
+/* iOS Mobile Enhancements - Additional Styles */
+
+/* Smooth iOS-like Card Interactions */
+@media (max-width: 768px) {
+    .project-card,
+    .skill-category,
+    .stat-item,
+    .contact-method {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: transform;
+    }
+
+    /* iOS-style Pull to Refresh Prevention */
+    body {
+        overscroll-behavior-y: contain;
+    }
+
+    /* iOS-style Input Focus */
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        transform: scale(1.01);
+        transition: all 0.2s ease;
+    }
+
+    /* iOS-style Button Press Effect */
+    .btn:active,
+    .nav-link:active,
+    .project-link:active {
+        transform: scale(0.97);
+        transition: transform 0.1s ease;
+    }
+
+    /* iOS-style Card Press Effect */
+    .project-card:active,
+    .skill-category:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+
+    /* Smooth Scroll Container */
+    .nav-menu {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* iOS-style Dividers */
+    .nav-menu li {
+        position: relative;
+    }
+
+    .nav-menu li::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 1.5rem;
+        right: 1.5rem;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu li:last-child::after {
+        display: none;
+    }
+
+    /* iOS-style Rounded Corners for Cards */
+    .project-card,
+    .skill-category,
+    .stat-item {
+        border-radius: 16px;
+    }
+
+    /* iOS-style Shadow */
+    .project-card,
+    .skill-category {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    /* iOS-style Backdrop Blur */
+    .navbar {
+        -webkit-backdrop-filter: blur(40px) saturate(180%);
+        backdrop-filter: blur(40px) saturate(180%);
+    }
+
+    /* Prevent Text Selection on Tap */
+    .hamburger,
+    .btn,
+    .nav-link {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    /* iOS-style Momentum Scrolling */
+    section {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* iPhone Notch Support */
+@supports (padding: max(0px)) {
+    .navbar {
+        padding-left: max(1.5rem, env(safe-area-inset-left));
+        padding-right: max(1.5rem, env(safe-area-inset-right));
+    }
+
+    .hero,
+    section {
+        padding-left: max(1.5rem, env(safe-area-inset-left));
+        padding-right: max(1.5rem, env(safe-area-inset-right));
+    }
+}
+
+/* Dark Mode Support (iOS) */
+@media (prefers-color-scheme: dark) {
+    /* Optional: Add dark mode styles here if needed */
+}
+
+/* Reduced Motion (iOS Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
