@@ -6,7 +6,12 @@ const translations = {
             about: "À propos",
             skills: "Compétences",
             projects: "Projets",
+            gallery: "Galerie",
             contact: "Contact"
+        },
+        gallery: {
+            title: "Galerie",
+            subtitle: "Quelques moments capturés"
         },
         hero: {
             greeting: "Bonjour, je me prénomme",
@@ -83,7 +88,12 @@ const translations = {
             about: "About",
             skills: "Skills",
             projects: "Projects",
+            gallery: "Gallery",
             contact: "Contact"
+        },
+        gallery: {
+            title: "Gallery",
+            subtitle: "Some captured moments"
         },
         hero: {
             greeting: "Hello, my name is",
@@ -160,7 +170,12 @@ const translations = {
             about: "Sobre mí",
             skills: "Habilidades",
             projects: "Proyectos",
+            gallery: "Galería",
             contact: "Contacto"
+        },
+        gallery: {
+            title: "Galería",
+            subtitle: "Algunos momentos capturados"
         },
         hero: {
             greeting: "Hola, mi nombre es",
@@ -237,7 +252,12 @@ const translations = {
             about: "Tietoa",
             skills: "Taidot",
             projects: "Projektit",
+            gallery: "Galleria",
             contact: "Yhteystiedot"
+        },
+        gallery: {
+            title: "Galleria",
+            subtitle: "Joitakin tallennettuja hetkiä"
         },
         hero: {
             greeting: "Hei, nimeni on",
@@ -314,7 +334,12 @@ const translations = {
             about: "Обо мне",
             skills: "Навыки",
             projects: "Проекты",
+            gallery: "Галерея",
             contact: "Контакты"
+        },
+        gallery: {
+            title: "Галерея",
+            subtitle: "Несколько запечатлённых моментов"
         },
         hero: {
             greeting: "Привет, меня зовут",
