@@ -1,4 +1,5 @@
-// Protection contre l'affichage du code source
+// Protection contre l'affichage du code source (TEMPORAIREMENT DÉSACTIVÉE POUR DEBUG)
+/*
 document.addEventListener('keydown', function(e) {
     // Bloquer Ctrl+U (voir le code source)
     if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
@@ -36,6 +37,7 @@ document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
     return false;
 });
+*/
 
 // Dynamic greeting based on time
 function updateGreeting() {
