@@ -7,9 +7,10 @@ export default async function handler(req, res) {
 
   // Vérifier l'origine (CORS)
   const allowedOrigins = [
-    'https://treecode-lac.vercel.app', 
+  
     'https://treecode-two.vercel.app',
-    'http://localhost:3000'
+    'https://treecode-nine.vercel.app',
+  
   ];
   const origin = req.headers.origin;
   
