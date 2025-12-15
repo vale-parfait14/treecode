@@ -1,5 +1,4 @@
-// Protection contre l'affichage du code source (TEMPORAIREMENT DÉSACTIVÉE POUR DEBUG)
-/*
+// Protection contre l'affichage du code source
 document.addEventListener('keydown', function(e) {
     // Bloquer Ctrl+U (voir le code source)
     if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
@@ -37,7 +36,6 @@ document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
     return false;
 });
-*/
 
 // Dynamic greeting based on time
 function updateGreeting() {
@@ -227,7 +225,7 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// Form submission
+// Form submission avec EmailJS
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
@@ -238,27 +236,16 @@ contactForm.addEventListener('submit', async (e) => {
     formStatus.textContent = 'Envoi en cours...';
     formStatus.className = 'form-status loading';
     
-    // Récupérer les données du formulaire
-    const formData = new FormData(contactForm);
-    const data = {
-        from_name: formData.get('from_name'),
-        from_email: formData.get('from_email'),
-        message: formData.get('message')
-    };
-    
     try {
-        // Envoyer via notre API serverless (clés cachées côté serveur)
-        const response = await fetch('/api/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        });
+        // Configuration obfusquée
+        const _0x2c3d = ['service_','3ais5uh','template_','e88k90u'];
+        const sId = _0x2c3d[0] + _0x2c3d[1];
+        const tId = _0x2c3d[2] + _0x2c3d[3];
         
-        if (!response.ok) {
-            throw new Error('Erreur lors de l\'envoi');
-        }
+        // Envoyer directement via EmailJS
+        const result = await emailjs.sendForm(sId, tId, contactForm);
+        
+        console.log('Email envoyé avec succès:', result);
         
         formStatus.textContent = 'Message envoyé avec succès ! Je vous répondrai bientôt.';
         formStatus.className = 'form-status success';
@@ -270,9 +257,9 @@ contactForm.addEventListener('submit', async (e) => {
             formStatus.className = 'form-status';
         }, 5000);
     } catch (error) {
+        console.error('Erreur EmailJS:', error);
         formStatus.textContent = 'Erreur lors de l\'envoi. Veuillez réessayer.';
         formStatus.className = 'form-status error';
-        console.error('Erreur:', error);
         
         // Effacer le message après 5 secondes
         setTimeout(() => {

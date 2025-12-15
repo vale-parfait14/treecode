@@ -30,28 +30,35 @@ export default async function handler(req, res) {
     }
 
     // Vérifier que les variables d'environnement existent
-    console.log('Vérification des variables d\'environnement...');
-    console.log('VITE_EMAILJS_SERVICE_ID:', process.env.VITE_EMAILJS_SERVICE_ID ? 'OK' : 'MANQUANT');
-    console.log('VITE_EMAILJS_TEMPLATE_ID:', process.env.VITE_EMAILJS_TEMPLATE_ID ? 'OK' : 'MANQUANT');
-    console.log('VITE_EMAILJS_PUBLIC_KEY:', process.env.VITE_EMAILJS_PUBLIC_KEY ? 'OK' : 'MANQUANT');
+    // Support both VITE_ prefixed and non-prefixed variables
+    const serviceId = process.env.VITE_EMAILJS_SERVICE_ID || process.env.EMAILJS_SERVICE_ID;
+    const templateId = process.env.VITE_EMAILJS_TEMPLATE_ID || process.env.EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.VITE_EMAILJS_PUBLIC_KEY || process.env.EMAILJS_PUBLIC_KEY;
     
-    if (!process.env.VITE_EMAILJS_SERVICE_ID || !process.env.VITE_EMAILJS_TEMPLATE_ID || !process.env.VITE_EMAILJS_PUBLIC_KEY) {
+    console.log('Vérification des variables d\'environnement...');
+    console.log('SERVICE_ID:', serviceId ? 'OK' : 'MANQUANT');
+    console.log('TEMPLATE_ID:', templateId ? 'OK' : 'MANQUANT');
+    console.log('PUBLIC_KEY:', publicKey ? 'OK' : 'MANQUANT');
+    console.log('Available env vars:', Object.keys(process.env).filter(k => k.includes('EMAIL')));
+    
+    if (!serviceId || !templateId || !publicKey) {
       console.error('Variables d\'environnement manquantes');
       return res.status(500).json({ 
         error: 'Configuration serveur manquante',
         missing: {
-          service: !process.env.VITE_EMAILJS_SERVICE_ID,
-          template: !process.env.VITE_EMAILJS_TEMPLATE_ID,
-          publicKey: !process.env.VITE_EMAILJS_PUBLIC_KEY
-        }
+          service: !serviceId,
+          template: !templateId,
+          publicKey: !publicKey
+        },
+        hint: 'Configurez les variables dans Vercel Dashboard: VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY'
       });
     }
 
     // Appel à EmailJS depuis le serveur
     const emailData = {
-      service_id: process.env.VITE_EMAILJS_SERVICE_ID,
-      template_id: process.env.VITE_EMAILJS_TEMPLATE_ID,
-      user_id: process.env.VITE_EMAILJS_PUBLIC_KEY,
+      service_id: serviceId,
+      template_id: templateId,
+      user_id: publicKey,
       template_params: {
         from_name,
         from_email,
