@@ -117,11 +117,11 @@ const translations = {
                 desc: "Professional website for ophthalmology clinic with online appointment booking"
             },
             genii: {
-                title: "Genii Vibes Consulting",
+                title: "GeniiVibes Consulting",
                 desc: "Corporate website for consulting firm with services presentation and contact"
             },
             plateau: {
-                title: "Plateau Medical Senghor",
+                title: "Plateau Medical Pr Gabriel A. Senghor",
                 desc: "Website for medical center with information about services and medical team"
             },
             sam: {
@@ -194,11 +194,11 @@ const translations = {
                 desc: "Sitio web profesional para clínica de oftalmología con reserva de citas en línea"
             },
             genii: {
-                title: "Genii Vibes Consulting",
+                title: "GeniiVibes Consulting",
                 desc: "Sitio web corporativo para empresa de consultoría con presentación de servicios y contacto"
             },
             plateau: {
-                title: "Plateau Medical Senghor",
+                title: "Plateau Medical Pr Gabriel A. Senghor",
                 desc: "Sitio web para centro médico con información sobre servicios y equipo médico"
             },
             sam: {
@@ -271,11 +271,11 @@ const translations = {
                 desc: "Ammattimainen verkkosivusto silmälääkäriklinikalle online-ajanvarauksella"
             },
             genii: {
-                title: "Genii Vibes Consulting",
+                title: "GeniiVibes Consulting",
                 desc: "Yrityksen verkkosivusto konsultointiyritykselle palveluiden esittelyllä ja yhteystiedoilla"
             },
             plateau: {
-                title: "Plateau Medical Senghor",
+                title: "Plateau Medical Pr Gabriel A. Senghor",
                 desc: "Verkkosivusto lääkärikeskukselle tiedoilla palveluista ja lääkäritiimistä"
             },
             sam: {
@@ -348,11 +348,11 @@ const translations = {
                 desc: "Профессиональный сайт офтальмологической клиники с онлайн-записью на приём"
             },
             genii: {
-                title: "Genii Vibes Consulting",
+                title: "GeniiVibes Consulting",
                 desc: "Корпоративный сайт консалтинговой компании с презентацией услуг и контактами"
             },
             plateau: {
-                title: "Plateau Medical Senghor",
+                title: "Plateau Medical Pr Gabriel A. Senghor",
                 desc: "Сайт медицинского центра с информацией об услугах и медицинской команде"
             },
             sam: {
