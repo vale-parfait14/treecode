@@ -37,18 +37,41 @@ document.addEventListener('contextmenu', function(e) {
     return false;
 });
 
-// Dynamic greeting based on time
+// Dynamic greeting based on time (now handled by LanguageManager in translations.js)
 function updateGreeting() {
+    // Check if langManager exists and use it
+    if (window.langManager) {
+        const currentLang = localStorage.getItem('preferredLang') || 'fr';
+        window.langManager.updateGreeting(currentLang);
+        return;
+    }
+    
+    // Fallback for initial load before langManager is ready
     const hour = new Date().getHours();
     const greetingElement = document.getElementById('dynamicGreeting');
+    if (!greetingElement) return;
+    
+    const currentLang = localStorage.getItem('preferredLang') || 'fr';
+    const t = window.translations ? window.translations[currentLang]?.hero : null;
     
     let greeting;
-    if (hour >= 5 && hour < 12) {
-        greeting = 'Bonjour, je me prénomme';
-    } else if (hour >= 12 && hour < 18) {
-        greeting = 'Bon après-midi, je me prénomme';
+    if (t) {
+        if (hour >= 5 && hour < 12) {
+            greeting = t.greeting;
+        } else if (hour >= 12 && hour < 18) {
+            greeting = t.greetingAfternoon;
+        } else {
+            greeting = t.greetingEvening;
+        }
     } else {
-        greeting = 'Bonsoir, je me prénomme';
+        // Default French fallback
+        if (hour >= 5 && hour < 12) {
+            greeting = 'Bonjour, je me prénomme';
+        } else if (hour >= 12 && hour < 18) {
+            greeting = 'Bon après-midi, je me prénomme';
+        } else {
+            greeting = 'Bonsoir, je me prénomme';
+        }
     }
     
     greetingElement.textContent = greeting;

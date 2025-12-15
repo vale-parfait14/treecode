@@ -1875,3 +1875,132 @@ section {
     color: #f87171;
     border: 1px solid rgba(239, 68, 68, 0.3);
 }
+
+
+/* Language Selector */
+.language-selector {
+    position: relative;
+    z-index: 1002;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: var(--dark);
+}
+
+.lang-btn:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: var(--primary);
+}
+
+.lang-btn.active {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: var(--primary);
+}
+
+.lang-flag {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.lang-code {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.lang-arrow {
+    transition: transform 0.2s ease;
+}
+
+.lang-btn.active .lang-arrow {
+    transform: rotate(180deg);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    min-width: 160px;
+    overflow: hidden;
+}
+
+.lang-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--dark);
+    transition: all 0.15s ease;
+    text-align: left;
+}
+
+.lang-option:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.lang-option.active {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.lang-option .lang-flag {
+    font-size: 1.5rem;
+}
+
+/* Mobile adjustments for language selector */
+@media (max-width: 768px) {
+    .language-selector {
+        position: absolute;
+        right: 4rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .lang-btn {
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .lang-code {
+        display: none;
+    }
+    
+    .lang-arrow {
+        display: none;
+    }
+    
+    .lang-dropdown {
+        right: -1rem;
+    }
+}
