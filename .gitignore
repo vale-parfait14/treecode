@@ -7,3 +7,7 @@ config.js
 # Fichiers système
 .DS_Store
 Thumbs.db
+
+# Fichiers volumineux (APK)
+*.apk
+app-release.apk
