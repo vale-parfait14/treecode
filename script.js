@@ -1,3 +1,42 @@
+// Protection contre l'affichage du code source
+document.addEventListener('keydown', function(e) {
+    // Bloquer Ctrl+U (voir le code source)
+    if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Bloquer Ctrl+Shift+I (outils de développement)
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Bloquer F12 (outils de développement)
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Bloquer Ctrl+Shift+J (console)
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Bloquer Ctrl+Shift+C (inspecteur)
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Bloquer le clic droit sur toute la page
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+
 // Dynamic greeting based on time
 function updateGreeting() {
     const hour = new Date().getHours();
@@ -186,45 +225,59 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// Initialize EmailJS
-(function() {
-    emailjs.init(EMAIL_CONFIG.publicKey);
-})();
-
 // Form submission
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     // Afficher le message de chargement
     formStatus.textContent = 'Envoi en cours...';
     formStatus.className = 'form-status loading';
     
-    // Envoyer l'email via EmailJS
-    emailjs.sendForm(EMAIL_CONFIG.serviceId, EMAIL_CONFIG.templateId, contactForm)
-        .then(() => {
-            formStatus.textContent = 'Message envoyé avec succès ! Je vous répondrai bientôt.';
-            formStatus.className = 'form-status success';
-            contactForm.reset();
-            
-            // Effacer le message après 5 secondes
-            setTimeout(() => {
-                formStatus.textContent = '';
-                formStatus.className = 'form-status';
-            }, 5000);
-        }, (error) => {
-            formStatus.textContent = 'Erreur lors de l\'envoi. Veuillez réessayer.';
-            formStatus.className = 'form-status error';
-            console.error('Erreur EmailJS:', error);
-            
-            // Effacer le message après 5 secondes
-            setTimeout(() => {
-                formStatus.textContent = '';
-                formStatus.className = 'form-status';
-            }, 5000);
+    // Récupérer les données du formulaire
+    const formData = new FormData(contactForm);
+    const data = {
+        from_name: formData.get('from_name'),
+        from_email: formData.get('from_email'),
+        message: formData.get('message')
+    };
+    
+    try {
+        // Envoyer via notre API serverless (clés cachées côté serveur)
+        const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         });
+        
+        if (!response.ok) {
+            throw new Error('Erreur lors de l\'envoi');
+        }
+        
+        formStatus.textContent = 'Message envoyé avec succès ! Je vous répondrai bientôt.';
+        formStatus.className = 'form-status success';
+        contactForm.reset();
+        
+        // Effacer le message après 5 secondes
+        setTimeout(() => {
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+        }, 5000);
+    } catch (error) {
+        formStatus.textContent = 'Erreur lors de l\'envoi. Veuillez réessayer.';
+        formStatus.className = 'form-status error';
+        console.error('Erreur:', error);
+        
+        // Effacer le message après 5 secondes
+        setTimeout(() => {
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+        }, 5000);
+    }
 });
 
 // Animate stats on scroll
