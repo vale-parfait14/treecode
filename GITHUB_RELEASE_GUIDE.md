@@ -1,6 +1,12 @@
-# 📦 Guide GitHub Releases pour votre APK
+# 📦 Guide de Distribution de l'APK
 
-## ✅ Avantages de GitHub Releases
+## 📱 Lien de Téléchargement Actuel
+
+**Google Drive:** https://drive.google.com/file/d/145PVX-j2TKC37Ruhwyvq2rb6R3Pl-FB-/view?usp=drive_link
+
+## ✅ Option Alternative : GitHub Releases
+
+### Avantages de GitHub Releases
 
 - ✨ **Gratuit** - Pas de limite de taille raisonnable
 - 🔒 **Fiable** - Hébergé par GitHub
