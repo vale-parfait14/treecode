@@ -6,7 +6,11 @@ export default async function handler(req, res) {
   }
 
   // Vérifier l'origine (CORS)
-  const allowedOrigins = ['https://treecode-lac.vercel.app', 'http://localhost:3000'];
+  const allowedOrigins = [
+    'https://treecode-lac.vercel.app', 
+    'https://treecode-two.vercel.app',
+    'http://localhost:3000'
+  ];
   const origin = req.headers.origin;
   
   if (allowedOrigins.includes(origin)) {
@@ -25,9 +29,21 @@ export default async function handler(req, res) {
     }
 
     // Vérifier que les variables d'environnement existent
+    console.log('Vérification des variables d\'environnement...');
+    console.log('VITE_EMAILJS_SERVICE_ID:', process.env.VITE_EMAILJS_SERVICE_ID ? 'OK' : 'MANQUANT');
+    console.log('VITE_EMAILJS_TEMPLATE_ID:', process.env.VITE_EMAILJS_TEMPLATE_ID ? 'OK' : 'MANQUANT');
+    console.log('VITE_EMAILJS_PUBLIC_KEY:', process.env.VITE_EMAILJS_PUBLIC_KEY ? 'OK' : 'MANQUANT');
+    
     if (!process.env.VITE_EMAILJS_SERVICE_ID || !process.env.VITE_EMAILJS_TEMPLATE_ID || !process.env.VITE_EMAILJS_PUBLIC_KEY) {
       console.error('Variables d\'environnement manquantes');
-      return res.status(500).json({ error: 'Configuration serveur manquante. Veuillez configurer les variables d\'environnement sur Vercel.' });
+      return res.status(500).json({ 
+        error: 'Configuration serveur manquante',
+        missing: {
+          service: !process.env.VITE_EMAILJS_SERVICE_ID,
+          template: !process.env.VITE_EMAILJS_TEMPLATE_ID,
+          publicKey: !process.env.VITE_EMAILJS_PUBLIC_KEY
+        }
+      });
     }
 
     // Appel à EmailJS depuis le serveur
