@@ -1,0 +1,11 @@
+{
+  "name": "treecode-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio de Parfait - Développeur Fullstack",
+  "scripts": {
+    "build": "node inject-env.js"
+  },
+  "keywords": ["portfolio", "fullstack", "developer"],
+  "author": "Parfait",
+  "license": "MIT"
+}
