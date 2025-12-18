@@ -2297,3 +2297,52 @@ section {
         aspect-ratio: 16/10;
     }
 }
+
+
+/* App Platform Badges */
+.app-platforms {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.platform-badge.android {
+    background: linear-gradient(135deg, #3ddc84, #00a956);
+    color: white;
+}
+
+.platform-badge.ios {
+    background: var(--gray-dark);
+    color: var(--gray-light);
+    border: 1px dashed var(--gray);
+}
+
+.platform-badge.ios.coming-soon {
+    opacity: 0.8;
+}
+
+.platform-icon {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .app-platforms {
+        flex-direction: column;
+    }
+    
+    .platform-badge {
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+}

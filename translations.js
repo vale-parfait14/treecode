@@ -58,7 +58,9 @@ const translations = {
             },
             samApp: {
                 title: "SAM Digitale App",
-                desc: "Application mobile de SAM Digitale - Disponible uniquement au Sénégal pour l'instant"
+                desc: "Application mobile de SAM Digitale - Disponible uniquement au Sénégal pour l'instant",
+                android: "Android - Disponible",
+                ios: "iOS - Bientôt disponible"
             }
         },
         contact: {
@@ -140,7 +142,9 @@ const translations = {
             },
             samApp: {
                 title: "SAM Digitale App",
-                desc: "SAM Digitale mobile application - Currently available only in Senegal"
+                desc: "SAM Digitale mobile application - Currently available only in Senegal",
+                android: "Android - Available",
+                ios: "iOS - Coming soon"
             }
         },
         contact: {
@@ -222,7 +226,9 @@ const translations = {
             },
             samApp: {
                 title: "SAM Digitale App",
-                desc: "Aplicación móvil de SAM Digitale - Disponible actualmente solo en Senegal"
+                desc: "Aplicación móvil de SAM Digitale - Disponible actualmente solo en Senegal",
+                android: "Android - Disponible",
+                ios: "iOS - Próximamente"
             }
         },
         contact: {
@@ -304,7 +310,9 @@ const translations = {
             },
             samApp: {
                 title: "SAM Digitale App",
-                desc: "SAM Digitale -mobiilisovellus - Saatavilla tällä hetkellä vain Senegalissa"
+                desc: "SAM Digitale -mobiilisovellus - Saatavilla tällä hetkellä vain Senegalissa",
+                android: "Android - Saatavilla",
+                ios: "iOS - Tulossa pian"
             }
         },
         contact: {
@@ -386,7 +394,9 @@ const translations = {
             },
             samApp: {
                 title: "SAM Digitale App",
-                desc: "Мобильное приложение SAM Digitale - Пока доступно только в Сенегале"
+                desc: "Мобильное приложение SAM Digitale - Пока доступно только в Сенегале",
+                android: "Android - Доступно",
+                ios: "iOS - Скоро"
             }
         },
         contact: {
