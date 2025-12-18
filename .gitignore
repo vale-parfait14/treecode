@@ -8,6 +8,4 @@ config.js
 .DS_Store
 Thumbs.db
 
-# Fichiers volumineux (APK)
-*.apk
-app-release.apk
+# Note: APK files are tracked with Git LFS
