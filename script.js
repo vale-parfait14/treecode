@@ -269,7 +269,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.reveal-text').forEach(el => revealObserver.observe(el));
 
-    // Timeline items - effet sticky géré par CSS, pas besoin d'observer
+    // Timeline items - apparition et disparition au scroll (bidirectionnel)
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Ajoute un petit délai pour l'effet
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, 100);
+            } else {
+                // Retire immédiatement la classe quand l'élément sort de la vue
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, { 
+        threshold: 0.2,
+        rootMargin: '-80px 0px -80px 0px'
+    });
+
+    document.querySelectorAll('.timeline-item').forEach(item => timelineObserver.observe(item));
 
     // Skills animation
     const skillsObserver = new IntersectionObserver((entries) => {
