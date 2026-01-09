@@ -134,71 +134,9 @@ document.addEventListener('DOMContentLoaded', function() {
     updateActiveNav();
 
     // ============================================
-    // LANGUAGE SELECTOR
+    // LANGUAGE - Géré par translations.js
     // ============================================
-    const langBtn = document.getElementById('langBtn');
-    const langDropdown = document.getElementById('langDropdown');
-
-    if (langBtn && langDropdown) {
-        langBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            langBtn.classList.toggle('active');
-            langDropdown.classList.toggle('active');
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-                langBtn.classList.remove('active');
-                langDropdown.classList.remove('active');
-            }
-        });
-
-        document.querySelectorAll('.lang-option').forEach(option => {
-            option.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const lang = this.dataset.lang;
-                const flag = this.dataset.flag;
-                
-                // Update active state
-                document.querySelectorAll('.lang-option').forEach(o => o.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Update button
-                langBtn.querySelector('.lang-flag').textContent = flag;
-                langBtn.querySelector('.lang-code').textContent = lang.toUpperCase();
-                
-                // Save preference
-                localStorage.setItem('preferredLang', lang);
-                
-                // Apply translation
-                if (window.langManager) {
-                    window.langManager.setLanguage(lang);
-                }
-                
-                updateGreeting();
-                
-                // Close dropdown
-                langBtn.classList.remove('active');
-                langDropdown.classList.remove('active');
-            });
-        });
-
-        // Load saved language
-        const savedLang = localStorage.getItem('preferredLang');
-        if (savedLang) {
-            const option = document.querySelector(`.lang-option[data-lang="${savedLang}"]`);
-            if (option) {
-                const flag = option.dataset.flag;
-                langBtn.querySelector('.lang-flag').textContent = flag;
-                langBtn.querySelector('.lang-code').textContent = savedLang.toUpperCase();
-                document.querySelectorAll('.lang-option').forEach(o => o.classList.remove('active'));
-                option.classList.add('active');
-            }
-        }
-    }
+    // Le sélecteur de langue est géré par LanguageManager dans translations.js
 
     // ============================================
     // DYNAMIC GREETING
@@ -225,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         greetingElement.textContent = greeting;
     }
 
-    updateGreeting();
+    // Ne pas appeler updateGreeting ici car translations.js le fait déjà;
 
     // ============================================
     // PARTICLES ANIMATION

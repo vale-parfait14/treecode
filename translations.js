@@ -552,8 +552,8 @@ class LanguageManager {
 let langManager;
 document.addEventListener('DOMContentLoaded', () => {
     langManager = new LanguageManager();
+    window.langManager = langManager;
 });
 
-// Export for use in other scripts
-window.langManager = langManager;
+// Export translations for use in other scripts
 window.translations = translations;
