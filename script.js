@@ -269,16 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.reveal-text').forEach(el => revealObserver.observe(el));
 
-    // Timeline items animation
-    const timelineObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
-
-    document.querySelectorAll('.timeline-item').forEach(item => timelineObserver.observe(item));
+    // Timeline items - effet sticky géré par CSS, pas besoin d'observer
 
     // Skills animation
     const skillsObserver = new IntersectionObserver((entries) => {
