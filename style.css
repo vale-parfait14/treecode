@@ -423,12 +423,13 @@ html {
     display: block;
     font-size: clamp(3rem, 7vw, 5rem);
     font-weight: 700;
-    color: var(--white);
+    color: #ffffff !important;
     letter-spacing: -0.04em;
     line-height: 1.1;
     margin-bottom: 1.5rem;
     opacity: 0;
     animation: fadeSlideUp 0.8s var(--ease-out) 0.4s forwards;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
 .hero-subtitle {
@@ -2031,15 +2032,7 @@ section {
     50% { background-position: 100% 50%; }
 }
 
-.name {
-    background: linear-gradient(135deg, var(--white), var(--primary-light), var(--white));
-    background-size: 200% 200%;
-    animation: gradientShift 5s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: var(--white);
-}
+/* Name is styled in hero section - no gradient effect here */
 
 /* Floating animation for hero image */
 .hero-image-container::before {
