@@ -38,7 +38,7 @@ const translations = {
             websites: "Sites Web",
             apps: "Applications",
             viewSite: "Voir le site",
-            downloadApk: "Télécharger l'APK",
+            googlePlay: "Voir sur Google Play",
             currentPartner: "Partenaire actuel",
             drmar: {
                 title: "Dr Mar Ndiaye Ophtalmo",
@@ -122,7 +122,7 @@ const translations = {
             websites: "Websites",
             apps: "Applications",
             viewSite: "View site",
-            downloadApk: "Download APK",
+            googlePlay: "View on Google Play",
             currentPartner: "Current partner",
             drmar: {
                 title: "Dr Mar Ndiaye Ophtalmo",
@@ -206,7 +206,7 @@ const translations = {
             websites: "Sitios Web",
             apps: "Aplicaciones",
             viewSite: "Ver sitio",
-            downloadApk: "Descargar APK",
+            googlePlay: "Ver en Google Play",
             currentPartner: "Socio actual",
             drmar: {
                 title: "Dr Mar Ndiaye Ophtalmo",
@@ -290,7 +290,7 @@ const translations = {
             websites: "Verkkosivut",
             apps: "Sovellukset",
             viewSite: "Katso sivusto",
-            downloadApk: "Lataa APK",
+            googlePlay: "Avaa Google Playssa",
             currentPartner: "Nykyinen kumppani",
             drmar: {
                 title: "Dr Mar Ndiaye Ophtalmo",
@@ -374,7 +374,7 @@ const translations = {
             websites: "Веб-сайты",
             apps: "Приложения",
             viewSite: "Открыть сайт",
-            downloadApk: "Скачать APK",
+            googlePlay: "Открыть в Google Play",
             currentPartner: "Текущий партнёр",
             drmar: {
                 title: "Dr Mar Ndiaye Ophtalmo",

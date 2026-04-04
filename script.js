@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             draw() {
-                ctx.fillStyle = `rgba(59, 130, 246, ${this.opacity})`;
+                ctx.fillStyle = `rgba(216, 161, 93, ${this.opacity})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     
                     if (dist < 150) {
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - dist / 150)})`;
+                        ctx.strokeStyle = `rgba(216, 161, 93, ${0.12 * (1 - dist / 150)})`;
                         ctx.lineWidth = 1;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
